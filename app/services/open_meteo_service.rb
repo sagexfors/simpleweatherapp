@@ -11,7 +11,7 @@ class OpenMeteoService
   end
 
   def self.get_forecast(latitude, longitude)
-    endpoint = "#{FORECAST_BASE_URL}?latitude=#{latitude}&longitude=#{longitude}&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,weathercode,windspeed_10m,winddirection_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_sum,precipitation_probability_max&timezone=auto"
+    endpoint = "#{FORECAST_BASE_URL}?latitude=#{latitude}&longitude=#{longitude}&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,weathercode,windspeed_10m,winddirection_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,precipitation_sum,precipitation_probability_max&timezone=auto&current_weather=true"
     self.get_data(endpoint)
   end
 
