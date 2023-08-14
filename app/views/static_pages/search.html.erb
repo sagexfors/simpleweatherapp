@@ -1,2 +1,61 @@
-<h1>Search</h1>
-<%= @forecast%>
+<div class="container d-flex align-items-center justify-content-center vh-100">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card border-primary">
+        <div class="card-header bg-primary text-white">
+          Weather Report
+        </div>
+        <div class="card-body">
+          <h2 class="card-title"><%= @current_weather.location.name.capitalize %>, <%= @current_weather.location.country.capitalize %></h2>
+          <p class="card-text fs-5">Temperature: <%= @current_weather.temperature %>°C</p>
+          <p class="card-text fs-5">Wind Speed: <%= @current_weather.windspeed %> m/s</p>
+          <p class="card-text fs-5">Wind Direction: <%= @current_weather.winddirection %>°</p>
+          <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
+          <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+          <%= form_with url: "/search", method: :get, class: "d-flex" do |form| %>
+            <%= form.text_field :location, class: "form-control me-2", pattern: ".{3,}", title: "Please enter at least 3 characters" %>
+            <%= form.submit "Search", class: "btn btn-outline-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card border-primary">
+        <div class="card-header bg-primary text-white">
+          Weather Report
+        </div>
+        <div class="card-body">
+          <h2 class="card-title"><%= @current_weather.location.name.capitalize %>, <%= @current_weather.location.country.capitalize %></h2>
+          <p class="card-text fs-5">Temperature: <%= @current_weather.temperature %>°C</p>
+          <p class="card-text fs-5">Wind Speed: <%= @current_weather.windspeed %> m/s</p>
+          <p class="card-text fs-5">Wind Direction: <%= @current_weather.winddirection %>°</p>
+          <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
+          <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+          <%= form_with url: "/search", method: :get, class: "d-flex" do |form| %>
+            <%= form.text_field :location, class: "form-control me-2", pattern: ".{3,}", title: "Please enter at least 3 characters" %>
+            <%= form.submit "Search", class: "btn btn-outline-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card border-primary">
+        <div class="card-header bg-primary text-white">
+          Weather Report
+        </div>
+        <div class="card-body">
+          <h2 class="card-title"><%= @current_weather.location.name.capitalize %>, <%= @current_weather.location.country.capitalize %></h2>
+          <p class="card-text fs-5">Temperature: <%= @current_weather.temperature %>°C</p>
+          <p class="card-text fs-5">Wind Speed: <%= @current_weather.windspeed %> m/s</p>
+          <p class="card-text fs-5">Wind Direction: <%= @current_weather.winddirection %>°</p>
+          <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
+          <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+          <%= form_with url: "/search", method: :get, class: "d-flex" do |form| %>
+            <%= form.text_field :location, class: "form-control me-2", pattern: ".{3,}", title: "Please enter at least 3 characters" %>
+            <%= form.submit "Search", class: "btn btn-outline-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

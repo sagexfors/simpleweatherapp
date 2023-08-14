@@ -6,7 +6,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <%= form_with url: "/search", method: :get, class: "d-flex" do |form| %>
-        <%= form.text_field :location, class: "form-control me-2" %>
+        <%= form.text_field :location, class: "form-control me-2", pattern: ".{3,}", title: "Please enter at least 3 characters" %>
         <%= form.submit "Search", class: "btn btn-outline-success" %>
       <% end %>
     </div>

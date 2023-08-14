@@ -43,3 +43,5 @@ group :test do
 end
 
 gem "faraday", "~> 2.7"
+
+gem 'pry-rails', :group => :development

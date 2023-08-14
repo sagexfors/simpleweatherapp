@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  temperature: 1.5
+  windspeed: 1.5
+  winddirection: 1
+  weathercode: 1
+  time: 2023-08-14 15:41:23
+  location: one
+
+two:
+  temperature: 1.5
+  windspeed: 1.5
+  winddirection: 1
+  weathercode: 1
+  time: 2023-08-14 15:41:23
+  location: two

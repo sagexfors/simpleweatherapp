@@ -1,16 +1,34 @@
+require 'pry'
+
 class StaticPagesController < ApplicationController
   def index
 
   end
 
   def search
-    location = params[:location] 
+    location = params[:location]
     if location.present?
-      @data = OpenMeteoService.search_location(location, 1)
-      latitude = @data["results"].first["latitude"]
-      longitude = @data["results"].first["longitude"]
-
+      data = OpenMeteoService.search_location(location, 1)["results"].first
+      latitude = data["latitude"]
+      longitude = data["longitude"]
+      country = data["country"]
+      city = data["name"]
+  
       @forecast = OpenMeteoService.get_forecast(latitude, longitude)
+  
+      current_weather_data = @forecast['current_weather']
+      new_location = Location.create(name: city, country: country)
+      current_weather = CurrentWeather.create(
+        temperature: current_weather_data['temperature'],
+        windspeed: current_weather_data['windspeed'],
+        winddirection: current_weather_data['winddirection'],
+        weathercode: current_weather_data['weathercode'],
+        time: current_weather_data['time'],
+        location: new_location
+      )
+  
+      @current_weather = new_location.current_weather
     end
-  end  
+  end
+  
 end
