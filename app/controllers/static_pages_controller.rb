@@ -1,4 +1,8 @@
-require 'pry'
+# require 'pry'
+
+# make this controller slim
+# too much duplication
+# 
 
 class StaticPagesController < ApplicationController
   def index
@@ -30,5 +34,4 @@ class StaticPagesController < ApplicationController
       @current_weather = new_location.current_weather
     end
   end
-  
 end
