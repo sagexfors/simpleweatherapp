@@ -6,7 +6,7 @@
 
 class StaticPagesController < ApplicationController
   def index
-
+    @preset_locations = Location.first(3)
   end
 
   def search

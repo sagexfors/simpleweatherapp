@@ -1,1 +1,58 @@
-
+<div class="container d-flex align-items-center justify-content-center vh-100">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <%= turbo_frame_tag "location" do %>
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white">
+            Weather Report
+          </div>
+          <div class="card-body">
+            <h2 class="card-title"><%= @preset_locations.first.current_weather.location.name.capitalize %>, <%= @preset_locations.first.country.capitalize %></h2>
+            <p class="card-text fs-5">Temperature: <%= @preset_locations.first.current_weather.temperature %>°C</p>
+            <p class="card-text fs-5">Wind Speed: <%= @preset_locations.first.current_weather.windspeed %> m/s</p>
+            <p class="card-text fs-5">Wind Direction: <%= @preset_locations.first.current_weather.winddirection %>°</p>
+            <p class="card-text fs-5">Weather: <%= weather_description(@preset_locations.first.current_weather.weathercode) %></p>
+            <p class="card-text fs-5">Datetime: <%= @preset_locations.first.current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+            <%= render "shared/search" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-4 mb-4">
+      <%= turbo_frame_tag "location_2" do %>
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white">
+            Weather Report
+          </div>
+          <div class="card-body">
+            <h2 class="card-title"><%= @preset_locations.second.current_weather.location.name.capitalize %>, <%= @preset_locations.second.current_weather.location.country.capitalize %></h2>
+            <p class="card-text fs-5">Temperature: <%= @preset_locations.second.current_weather.temperature %>°C</p>
+            <p class="card-text fs-5">Wind Speed: <%= @preset_locations.second.current_weather.windspeed %> m/s</p>
+            <p class="card-text fs-5">Wind Direction: <%= @preset_locations.second.current_weather.winddirection %>°</p>
+            <p class="card-text fs-5">Weather: <%= weather_description(@preset_locations.second.current_weather.weathercode) %></p>
+            <p class="card-text fs-5">Datetime: <%= @preset_locations.second.current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+            <%= render "shared/search" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-md-4 mb-4">
+      <%= turbo_frame_tag "location_3" do %>
+        <div class="card border-primary">
+          <div class="card-header bg-primary text-white">
+            Weather Report
+          </div>
+          <div class="card-body">
+            <h2 class="card-title"><%= @preset_locations.third.current_weather.location.name.capitalize %>, <%= @preset_locations.third.current_weather.location.country.capitalize %></h2>
+            <p class="card-text fs-5">Temperature: <%= @preset_locations.third.current_weather.temperature %>°C</p>
+            <p class="card-text fs-5">Wind Speed: <%= @preset_locations.third.current_weather.windspeed %> m/s</p>
+            <p class="card-text fs-5">Wind Direction: <%= @preset_locations.third.current_weather.winddirection %>°</p>
+            <p class="card-text fs-5">Weather: <%= weather_description(@preset_locations.third.current_weather.weathercode) %></p>
+            <p class="card-text fs-5">Datetime: <%= @preset_locations.third.current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+            <%= render "shared/search" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
