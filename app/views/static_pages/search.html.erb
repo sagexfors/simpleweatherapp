@@ -13,10 +13,7 @@
             <p class="card-text fs-5">Wind Direction: <%= @current_weather.winddirection %>°</p>
             <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
-            <%= form_with url: "/search", method: :get, class: "d-flex" do |form| %>
-              <%= form.text_field :location, class: "form-control me-2", pattern: ".{3,}", title: "Please enter at least 3 characters" %>
-              <%= form.submit "Search", class: "btn btn-outline-success" %>
-            <% end %>
+            <%= render "shared/search" %>
           </div>
         </div>
       <% end %>
@@ -34,10 +31,7 @@
             <p class="card-text fs-5">Wind Direction: <%= @current_weather.winddirection %>°</p>
             <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
-            <%= form_with url: "/search", method: :get, class: "d-flex" do |form| %>
-              <%= form.text_field :location, class: "form-control me-2", pattern: ".{3,}", title: "Please enter at least 3 characters" %>
-              <%= form.submit "Search", class: "btn btn-outline-success" %>
-            <% end %>
+            <%= render "shared/search" %>
           </div>
         </div>
       </div>
@@ -55,10 +49,7 @@
             <p class="card-text fs-5">Wind Direction: <%= @current_weather.winddirection %>°</p>
             <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
-            <%= form_with url: "/search", method: :get, class: "d-flex" do |form| %>
-              <%= form.text_field :location, class: "form-control me-2", pattern: ".{3,}", title: "Please enter at least 3 characters" %>
-              <%= form.submit "Search", class: "btn btn-outline-success" %>
-            <% end %>
+            <%= render "shared/search" %>
           </div>
         </div>
       </div>
