@@ -1,0 +1,29 @@
+<!-- app/views/hourly_forecasts/show.html.erb -->
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Temperature (°C)</th>
+      <th>Humidity (%)</th>
+      <th>Apparent Temperature (°C)</th>
+      <th>Precipitation Probability (%)</th>
+      <th>Weather Code</th>
+      <th>Wind Speed (m/s)</th>
+      <th>Wind Direction (°)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forecast_data['time'].each_with_index do |time, index| %>
+      <tr>
+        <td><%= time %></td>
+        <td><%= @forecast_data['temperature_2m'][index] %></td>
+        <td><%= @forecast_data['relativehumidity_2m'][index] %></td>
+        <td><%= @forecast_data['apparent_temperature'][index] %></td>
+        <td><%= @forecast_data['precipitation_probability'][index] %></td>
+        <td><%= @forecast_data['weathercode'][index] %></td>
+        <td><%= @forecast_data['windspeed_10m'][index] %></td>
+        <td><%= @forecast_data['winddirection_10m'][index] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

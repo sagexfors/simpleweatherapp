@@ -13,6 +13,7 @@
             <p class="card-text fs-5">Wind Direction: <%= @preset_locations.first.current_weather.winddirection %>°</p>
             <p class="card-text fs-5">Weather: <%= weather_description(@preset_locations.first.current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @preset_locations.first.current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+            <p><%= link_to "Hourly Forecast", @preset_locations.first.hourly_forecast, data: { turbo_frame: "_top" } %></p>
             <%= render "shared/search" %>
           </div>
         </div>
@@ -31,6 +32,7 @@
             <p class="card-text fs-5">Wind Direction: <%= @preset_locations.second.current_weather.winddirection %>°</p>
             <p class="card-text fs-5">Weather: <%= weather_description(@preset_locations.second.current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @preset_locations.second.current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+            <p><%= link_to "Hourly Forecast", @preset_locations.second.hourly_forecast, data: { turbo_frame: "_top" } %></p>
             <%= render "shared/search" %>
           </div>
         </div>
@@ -49,6 +51,7 @@
             <p class="card-text fs-5">Wind Direction: <%= @preset_locations.third.current_weather.winddirection %>°</p>
             <p class="card-text fs-5">Weather: <%= weather_description(@preset_locations.third.current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @preset_locations.third.current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
+            <p><%= link_to "Hourly Forecast", @preset_locations.third.hourly_forecast, data: { turbo_frame: "_top" } %></p>
             <%= render "shared/search" %>
           </div>
         </div>

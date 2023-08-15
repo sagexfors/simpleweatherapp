@@ -1,4 +1,4 @@
-require 'pry'
+
 
 # make this controller slim
 # too much duplication
@@ -32,7 +32,7 @@ class StaticPagesController < ApplicationController
         location: new_location
       )
       # binding.pry
-      HourlyForecast.create(data: hourly_forecast, location: new_location)
+      @hourly_forecast = HourlyForecast.create(data: hourly_forecast, location: new_location)
   
       @current_weather = new_location.current_weather
     end
