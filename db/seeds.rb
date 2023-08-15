@@ -18,6 +18,7 @@ locations.each do |location|
 
   current_weather_data = forecast['current_weather']
   hourly_forecast = forecast["hourly"]
+  daily_forecast = forecast["daily"]
   new_location = Location.create(name: city, country: country)
   current_weather = CurrentWeather.create(
     temperature: current_weather_data['temperature'],
@@ -27,7 +28,8 @@ locations.each do |location|
     time: current_weather_data['time'],
     location: new_location
   )
-
   HourlyForecast.create(data: hourly_forecast, location: new_location)
-  puts "#{location}'s current weather inserted"
+  DailyForecast.create(data: daily_forecast, location: new_location)
+
+  puts "#{location} inserted"
 end

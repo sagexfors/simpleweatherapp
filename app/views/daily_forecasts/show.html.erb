@@ -1,0 +1,29 @@
+<!-- app/views/hourly_forecasts/show.html.erb -->
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Temperature Min (°C)</th>
+      <th>Temperature Max (°C)</th>
+      <th>Apparent Temperature Min (°C)</th>
+      <th>Apparent Temperature Max (°C)</th>
+      <th>Weather Code</th>
+      <th>Precipitation Probability Sum (%)</th>
+      <th>Precipitation Probability Max (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forecast_data['time'].each_with_index do |time, index| %>
+      <tr>
+        <td><%= time %></td>
+        <td><%= @forecast_data['temperature_2m_min'][index] %></td>
+        <td><%= @forecast_data['temperature_2m_max'][index] %></td>
+        <td><%= @forecast_data['apparent_temperature_min'][index] %></td>
+        <td><%= @forecast_data['apparent_temperature_max'][index] %></td>
+        <td><%= @forecast_data['weathercode'][index] %></td>
+        <td><%= @forecast_data['precipitation_sum'][index] %></td>
+        <td><%= @forecast_data['precipitation_probability_max'][index] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -14,6 +14,7 @@
             <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
             <p><%= link_to "Hourly Forecast", @current_weather.location.hourly_forecast, data: { turbo_frame: "_top" } %></p>
+            <p><%= link_to "Daily Forecast", @current_weather.location.daily_forecast, data: { turbo_frame: "_top" } %></p>
             <%= render "shared/search" %>
           </div>
         </div>
@@ -33,6 +34,7 @@
             <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
             <p><%= link_to "Hourly Forecast", @current_weather.location.hourly_forecast, data: { turbo_frame: "_top" } %></p>
+            <p><%= link_to "Daily Forecast", @current_weather.location.daily_forecast, data: { turbo_frame: "_top" } %></p>
             <%= render "shared/search" %>
           </div>
         </div>
@@ -52,6 +54,7 @@
             <p class="card-text fs-5">Weather: <%= weather_description(@current_weather.weathercode) %></p>
             <p class="card-text fs-5">Datetime: <%= @current_weather.time.localtime.strftime('%A, %B %e, %Y %l:%M %p') %></p>
             <p><%= link_to "Hourly Forecast", @current_weather.location.hourly_forecast, data: { turbo_frame: "_top" } %></p>
+            <p><%= link_to "Daily Forecast", @current_weather.location.daily_forecast, data: { turbo_frame: "_top" } %></p>
             <%= render "shared/search" %>
           </div>
         </div>

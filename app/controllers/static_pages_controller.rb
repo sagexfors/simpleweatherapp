@@ -6,7 +6,7 @@
 
 class StaticPagesController < ApplicationController
   def index
-    @preset_locations = Location.first(3)
+    @preset_locations = Location.last(3)
   end
 
   def search
@@ -22,6 +22,7 @@ class StaticPagesController < ApplicationController
   
       current_weather_data = forecast['current_weather']
       hourly_forecast = forecast["hourly"]
+      daily_forecast = forecast["daily"]
       new_location = Location.create(name: city, country: country)
       current_weather = CurrentWeather.create(
         temperature: current_weather_data['temperature'],
@@ -33,6 +34,7 @@ class StaticPagesController < ApplicationController
       )
       # binding.pry
       @hourly_forecast = HourlyForecast.create(data: hourly_forecast, location: new_location)
+      @daily_forecast = DailyForecast.create(data: daily_forecast, location: new_location)
   
       @current_weather = new_location.current_weather
     end
