@@ -5,3 +5,26 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+locations = ["New York", "Tokyo", "Manila"]
+locations.each do |location|
+  data = OpenMeteoService.search_location(location, 1)["results"].first
+  latitude = data["latitude"]
+  longitude = data["longitude"]
+  country = data["country"]
+  city = data["name"]
+
+  forecast = OpenMeteoService.get_forecast(latitude, longitude)
+
+  current_weather_data = forecast['current_weather']
+  new_location = Location.create(name: city, country: country)
+  current_weather = CurrentWeather.create(
+    temperature: current_weather_data['temperature'],
+    windspeed: current_weather_data['windspeed'],
+    winddirection: current_weather_data['winddirection'],
+    weathercode: current_weather_data['weathercode'],
+    time: current_weather_data['time'],
+    location: new_location
+  )
+  puts "#{location}'s current weather inserted"
+end

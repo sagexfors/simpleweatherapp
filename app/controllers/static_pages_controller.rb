@@ -18,9 +18,9 @@ class StaticPagesController < ApplicationController
       country = data["country"]
       city = data["name"]
   
-      @forecast = OpenMeteoService.get_forecast(latitude, longitude)
+      forecast = OpenMeteoService.get_forecast(latitude, longitude)
   
-      current_weather_data = @forecast['current_weather']
+      current_weather_data = forecast['current_weather']
       new_location = Location.create(name: city, country: country)
       current_weather = CurrentWeather.create(
         temperature: current_weather_data['temperature'],
